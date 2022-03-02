@@ -7,7 +7,7 @@ public class GildedRose {
 	private Item[] items;
 
 	/**
-	 * Crea la tienda partiende de la lista de productos
+	 * Crea la tienda partiendo de la lista de productos
 	 * 
 	 * @param items Lista de productos que no puede se nula ni contener productos
 	 *              nulos
@@ -45,18 +45,18 @@ public class GildedRose {
 	}
 
 	private void updateQuesoQuality(int productIndex) {
-		añadeCalidad(productIndex, haCaducado(productIndex) ? 2 : 1);
+		aÃ±adeCalidad(productIndex, haCaducado(productIndex) ? 2 : 1);
 	}
 
 	private void updateEntradaQuality(int productIndex) {
 		if (haCaducado(productIndex)) {
 			ponACeroCalidad(productIndex);
 		} else if (quedan5DiasOMenos(productIndex)) {
-			añadeCalidad(productIndex, 3);
+			aÃ±adeCalidad(productIndex, 3);
 		} else if (quedan10diasOMenos(productIndex)) {
-			añadeCalidad(productIndex, 2);
+			aÃ±adeCalidad(productIndex, 2);
 		} else {
-			añadeCalidad(productIndex, 1);
+			aÃ±adeCalidad(productIndex, 1);
 		}
 	}
 
@@ -133,7 +133,7 @@ public class GildedRose {
 //		}
 	}
 
-	private void añadeCalidad(int productIndex, int cantidad) {
+	private void aÃ±adeCalidad(int productIndex, int cantidad) {
 		if (items[productIndex].quality + cantidad > CALIDAD_MAXIMA) {
 			items[productIndex].quality = CALIDAD_MAXIMA;
 		} else {
