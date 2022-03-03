@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    triggers {
+    triggers { // Sondear repositorio a intervalos regulares
         pollSCM('* * * * *')
     }
     stages {
@@ -8,7 +8,8 @@ pipeline {
             steps {
                 sh '''
                     echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
+                    echo "JAVA_HOME = ${JAVA_HOME}"
+                    echo "JENKINS_VERSION = ${JENKINS_VERSION}"
                 ''' 
             }
         }
@@ -24,9 +25,19 @@ pipeline {
         }
         stage("SonarQube Analysis") {
             steps {
-                withSonarQubeEnv('SonarQubePruebas') {
+                withSonarQubeEnv('SonarQubeDockerServer') {
                     sh 'mvn clean verify sonar:sonar'
                 }
+            }
+        }
+        stage("Build") {
+            steps {
+                sh "mvn package"
+            }
+        }
+        stage("Deploy") {
+            steps {
+                sh "mvn install"
             }
         }
     }
