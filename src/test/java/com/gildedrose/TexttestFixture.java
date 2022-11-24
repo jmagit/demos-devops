@@ -13,7 +13,7 @@ public class TexttestFixture {
     }
 
 	private static void actualizaProductos(String[] args) throws ProductListException {
-		System.out.println("OMGHAI!");
+//		System.out.println("OMGHAI!");
 
         Item[] items = new Item[] {
                 new Item("+5 Dexterity Vest", 10, 20), //
@@ -30,7 +30,7 @@ public class TexttestFixture {
         GildedRose app = new GildedRose(items);
 
         int days = 10;
-        if (args.length > 0) {
+        if (args != null && args.length > 0) {
             days = Integer.parseInt(args[0]) + 1;
         }
 
