@@ -27,10 +27,4 @@ class CalculadoraTest {
 		double rslt = calc.suma(a, b);
 		assertEquals(previsto,	rslt);
 	}
-
-	@Test
-	void kkTest() {
-		calc.kk(0, 1);
-		assertNotNull(calc);
-	}
 }
