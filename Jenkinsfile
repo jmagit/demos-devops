@@ -28,6 +28,10 @@ pipeline {
                 withSonarQubeEnv('SonarQubeDockerServer') {
                     sh 'mvn clean verify sonar:sonar'
                 }
+                timeout(5) { // time: 5 unit: 'MINUTES'
+                  // In case of SonarQube failure or direct timeout exceed, stop Pipeline
+                  waitForQualityGate abortPipeline: waitForQualityGate().status != 'OK'
+                }
             }
         }
         stage("Build") {
