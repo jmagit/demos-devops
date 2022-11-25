@@ -21,7 +21,7 @@ public class GildedRose {
 			if (item == null)
 				throw new ProductListException("Item null");
 		}
-		this.items = items.clone();kk
+		this.items = items.clone();
 	}
 
 	/**
