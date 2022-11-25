@@ -9,8 +9,7 @@ class FuncionalesTest {
 
 	@Test
 	void test() {
-		TexttestFixture.main(null);
-		assertTrue(true);
+		assertDoesNotThrow(() -> TexttestFixture.main(null));
 	}
 
 }
