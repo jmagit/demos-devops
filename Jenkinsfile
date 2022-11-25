@@ -32,12 +32,12 @@ pipeline {
         }
         stage("Build") {
             steps {
-                sh "mvn package"
+                sh "mvn package -DskipTests"
             }
         }
         stage("Deploy") {
             steps {
-                sh "mvn install"
+                sh "mvn install -DskipTests"
             }
         }
     }
