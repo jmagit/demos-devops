@@ -18,7 +18,7 @@ class GildedRoseTest {
             new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
             // this conjured item does not work properly yet
             new Item("Conjured Mana Cake", 3, 6) };
-/*
+
 	@ParameterizedTest
 	@CsvSource({
 		"2, 0, 1, 1",
@@ -139,7 +139,7 @@ class GildedRoseTest {
         assertNotNull(rsltItems);
         assertEquals(1, rsltItems.length);
 	}
-*/
+
 	@Test
 	void getItemTest() throws ProductListException {
 		String name = "Normal Product";
