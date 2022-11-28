@@ -25,6 +25,7 @@ pipeline {
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
+                    archiveArtifacts 'target/*.jar'
                 }
             }
         }
@@ -48,6 +49,13 @@ pipeline {
             steps {
                 sh "mvn install -DskipTests"
             }
+        }
+    }
+    post {
+        always {
+            mail to: 'team@example.com',
+                subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
+                body: "${env.BUILD_URL} has result ${currentBuild.currentResult}"
         }
     }
 }
