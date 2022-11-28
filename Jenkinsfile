@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker 'maven:3.8.6-eclipse-temurin-17' }
     triggers { // Sondear repositorio a intervalos regulares
         pollSCM('* * * * *')
     }
@@ -44,6 +44,11 @@ pipeline {
             steps {
                 sh "mvn package -DskipTests"
                 archiveArtifacts 'target/*.jar'
+            }
+        }
+        stage("Deploy") {
+            steps {
+                sh "mvn install -DskipTests"
             }
         }
     }
