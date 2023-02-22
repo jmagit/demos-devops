@@ -55,7 +55,7 @@ pipeline {
     post {
         always {
             mail to: 'team@example.com',
-                subject: "Paso a produccion: ${currentBuild.fullDisplayName}",
+                subject: "Resultado Paso a produccion: ${currentBuild.fullDisplayName}",
                 body: "${env.BUILD_URL} has result ${currentBuild.currentResult}"
         }
     }
