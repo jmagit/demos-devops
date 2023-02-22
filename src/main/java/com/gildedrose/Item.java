@@ -13,7 +13,7 @@ public class Item {
 		try {
 			setQuality(quality);
 		} catch (Exception e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 
