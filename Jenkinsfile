@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker 'maven:3.8.6-eclipse-temurin-17' }
+    agent any
     triggers { // Sondear repositorio a intervalos regulares
         pollSCM('* * * * *')
     }
