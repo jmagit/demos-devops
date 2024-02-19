@@ -85,7 +85,7 @@ class GildedRoseTest {
 	@CsvSource({
 		"11, 10, 10, 9",
 		"7, 1, 6, 0",
-//		"5, -5, 4, 0",
+		"5, -5, 4, 0",
 		"0, 3, -1, 1",
 		})
 	void otherProductTest(int sellIn, int quality, int sellInResult, int qualityResult) throws ProductListException {
