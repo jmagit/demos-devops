@@ -10,11 +10,11 @@ public class Item {
 	public Item(String name, int sellIn, int quality) {
 		this.name = name;
 		this.sellIn = sellIn;
-		try {
+//		try {
 			setQuality(quality);
-		} catch (Exception e) {
-			// e.printStackTrace();
-		}
+//		} catch (Exception e) {
+//			// e.printStackTrace();
+//		}
 	}
 
 	public String getName() {
@@ -37,9 +37,9 @@ public class Item {
 		return quality;
 	}
 
-	public void setQuality(int quality) throws Exception {
+	public void setQuality(int quality) throws IllegalArgumentException {
 		if (quality < 0)
-			throw new Exception("La cantidad no puede ser negativa.");
+			throw new IllegalArgumentException("La cantidad no puede ser negativa.");
 		this.quality = quality;
 	}
 
