@@ -2,6 +2,8 @@ package com.gildedrose;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeFalse;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -45,7 +47,8 @@ class PruebasCalculadoraTest {
 //		Calculadora calculadora = new Calculadora();
 
 //		double result = calculadora.suma(1, 3);
-
+//			calculadora = mock(Calculadora.class);
+//			when(calculadora.suma(1, 3)).thenReturn(3.0);
 			assertEquals(4, calculadora.suma(1, 3));
 		}
 
