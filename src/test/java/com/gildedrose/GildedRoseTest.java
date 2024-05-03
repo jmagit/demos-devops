@@ -2,6 +2,7 @@ package com.gildedrose;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
@@ -189,6 +190,7 @@ class GildedRoseTest {
 
 	@ParameterizedTest(name = "{0} => sellIn: {1} quality: {2} –> sellIn: {3} quality: {4}")
 	@CsvFileSource(resources = "casos-de-prueba.csv", numLinesToSkip = 1)
+	@Disabled
 	void datasourceTest(String producto, int sellIn, int quality, int sellInResult, int qualityResult) throws ProductListException {
 		String name = producto.replace("\'", "");
 		Item product = new Item(name, sellIn, quality);

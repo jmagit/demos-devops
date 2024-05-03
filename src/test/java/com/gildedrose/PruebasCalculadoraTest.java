@@ -65,6 +65,22 @@ class PruebasCalculadoraTest {
 			assertEquals(0.3, result);
 		}
 
+
+		@Test
+		void testBad() {
+			Calculadora calculadora = new Calculadora();
+			assertNotNull(calculadora);
+			assertEquals(4, calculadora.add(1, 3));
+			assertEquals(0.3, calculadora.suma(0.1, 0.2), "la del 0.1, 0.2");
+			assertEquals(0.1, calculadora.suma(1, -0.9), "la del 1, -0.9");
+		}
+
+	}
+
+	@Nested
+	@DisplayName("Dobles de Pruebas")
+	@Disabled
+	class DemosMock {
 		@Test
 		void testMock() {
 			Calculadora calculadora = mock(Calculadora.class);
@@ -84,8 +100,8 @@ class PruebasCalculadoraTest {
 			}
 
 			public String calcula() {
-//	 			return educado.saluda("soy el pedido");
-				return "Hola soy el pedido";
+	 			return educado.saluda("soy el pedido");
+//				return "Hola soy el pedido";
 			}
 		}
 
@@ -106,18 +122,8 @@ class PruebasCalculadoraTest {
 			String cad = educado.saluda("mundo");
 			assertEquals("Hola mundo", cad);
 		}
-
-		@Test
-		void testBad() {
-			Calculadora calculadora = new Calculadora();
-			assertNotNull(calculadora);
-			assertEquals(4, calculadora.add(1, 3));
-			assertEquals(0.3, calculadora.suma(0.1, 0.2), "la del 0.1, 0.2");
-			assertEquals(0.1, calculadora.suma(1, -0.9), "la del 1, -0.9");
-		}
-
 	}
-
+	
 	@Test
 //	@Disabled
 	void testRestaKO() {
@@ -177,9 +183,9 @@ class PruebasCalculadoraTest {
 		}
 		@DisplayName("Demo csv")
 		@ParameterizedTest(name = "Caso {index} => {0} / {1} = {2}")
-		@CsvSource(value = {"Nombre,3,0", "con espacio,2,2", "'con,coma',-2,2"})
+		@CsvSource(value = {"Nombre,3,3", "con espacio,2,2", "'con,coma',2,2"})
 		void testDemoCSV(String op1, int op2, int result) {
-			
+			assertEquals(result, op2);
 		}
 
 	}

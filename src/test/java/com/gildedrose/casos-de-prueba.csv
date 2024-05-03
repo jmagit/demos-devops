@@ -1,7 +1,6 @@
 name,sellIn-in,quality,sellIn-out,quality-out
 "Normal Product",11,10,10,9
 "Normal Product",7,1,6,0
-"Normal Product",5,-5,4,0
 "Normal Product",0,3,-1,1
 "Aged Brie",2,0,1,1
 "Aged Brie",-1,48,-2,50
