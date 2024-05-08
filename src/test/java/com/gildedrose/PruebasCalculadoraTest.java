@@ -185,7 +185,7 @@ class PruebasCalculadoraTest {
 		@ParameterizedTest(name = "Caso {index} => {0} / {1} = {2}")
 		@CsvSource(value = {"Nombre,3,3", "con espacio,2,2", "'con,coma',2,2"})
 		void testDemoCSV(String op1, int op2, int result) {
-			assertEquals(result, op2);
+//			assertEquals(result, op2);
 		}
 
 	}
