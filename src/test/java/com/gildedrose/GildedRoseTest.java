@@ -47,7 +47,7 @@ class GildedRoseTest {
 	}
 	@ParameterizedTest(name = "{index} => sellIn: {0} quality: {1} –> sellIn: {2} quality: {3}")
 	@CsvSource({
-		"1, 0, 1, 0",
+		"1, 0, 1, 10",
 		"0, 1, 0, 1",
 		"-1, 1, -1, 1",
 		})
@@ -134,26 +134,26 @@ class GildedRoseTest {
 		String name = "Normal Product";
         assertThrows(IllegalArgumentException.class, () -> new Item(name, sellIn, quality));
 	}
-//	@ParameterizedTest(name = "{index} => sellIn: {0} quality: {1} –> sellIn: {2} quality: {3}")
-//	@CsvSource({
-//		"11, 10, 10, 8",
-//		"7, 1, 6, 0",
-//		"-5, 10, -6, 6",
-//		"0, 3, -1, 0",
-//		})
-//	void product_Conjured_Test(int sellIn, int quality, int sellInResult, int qualityResult) throws ProductListException {
-//		String name = "Conjured Mana Cake";
-//		Item product = new Item(name, sellIn, quality);
-//        GildedRose app = new GildedRose(new Item[] { 
-//        		product
-//        });
-//        app.updateQuality();
-//        assertAll(name,
-//        		() -> assertEquals(name, product.name, "name"),
-//        		() -> assertEquals(sellInResult, product.sellIn, "sellIn"),
-//        		() -> assertEquals(qualityResult, product.quality, "quality")
-//        		);
-//	}
+	@ParameterizedTest(name = "{index} => sellIn: {0} quality: {1} –> sellIn: {2} quality: {3}")
+	@CsvSource({
+		"11, 10, 10, 8",
+		"7, 1, 6, 0",
+		"-5, 10, -6, 6",
+		"0, 3, -1, 0",
+		})
+	void product_Conjured_Test(int sellIn, int quality, int sellInResult, int qualityResult) throws ProductListException {
+		String name = "Conjured Mana Cake";
+		Item product = new Item(name, sellIn, quality);
+        GildedRose app = new GildedRose(new Item[] { 
+        		product
+        });
+        app.updateQuality();
+        assertAll(name,
+        		() -> assertEquals(name, product.name, "name"),
+        		() -> assertEquals(sellInResult, product.sellIn, "sellIn"),
+        		() -> assertEquals(qualityResult, product.quality, "quality")
+        		);
+	}
 
 	@Test
 	void getItems_Test() throws ProductListException {
@@ -188,21 +188,21 @@ class GildedRoseTest {
         		);
 	}
 
-//	@ParameterizedTest(name = "{0} => sellIn: {1} quality: {2} –> sellIn: {3} quality: {4}")
-//	@CsvFileSource(resources = "casos-de-prueba.csv", numLinesToSkip = 1)
-//	@Disabled
-//	void datasourceTest(String producto, int sellIn, int quality, int sellInResult, int qualityResult) throws ProductListException {
-//		String name = producto.replace("\'", "");
-//		Item product = new Item(name, sellIn, quality);
-//        GildedRose app = new GildedRose(new Item[] { 
-//        		product
-//        });
-//        app.updateQuality();
-//        assertAll(name,
-//        		() -> assertEquals(name, product.name, "name"),
-//        		() -> assertEquals(sellInResult, product.sellIn, "sellIn"),
-//        		() -> assertEquals(qualityResult, product.quality, "quality")
-//        		);
-//	}
+	@ParameterizedTest(name = "{0} => sellIn: {1} quality: {2} –> sellIn: {3} quality: {4}")
+	@CsvFileSource(resources = "casos-de-prueba.csv", numLinesToSkip = 1)
+	@Disabled
+	void datasourceTest(String producto, int sellIn, int quality, int sellInResult, int qualityResult) throws ProductListException {
+		String name = producto.replace("\'", "");
+		Item product = new Item(name, sellIn, quality);
+        GildedRose app = new GildedRose(new Item[] { 
+        		product
+        });
+        app.updateQuality();
+        assertAll(name,
+        		() -> assertEquals(name, product.name, "name"),
+        		() -> assertEquals(sellInResult, product.sellIn, "sellIn"),
+        		() -> assertEquals(qualityResult, product.quality, "quality")
+        		);
+	}
 
 }
