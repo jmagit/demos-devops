@@ -11,7 +11,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
-@Disabled
 class GildedRoseTest {
     Item[] samples = new Item[] {
             new Item("+5 Dexterity Vest", 10, 20), //
@@ -25,6 +24,7 @@ class GildedRoseTest {
             // this conjured item does not work properly yet
             new Item("Conjured Mana Cake", 3, 6) };
 
+@Disabled
     @ParameterizedTest(name = "{index} => sellIn: {0} quality: {1} –> sellIn: {2} quality: {3}")
 	@CsvSource({
 		"2, 0, 1, 1",
@@ -46,6 +46,7 @@ class GildedRoseTest {
         		() -> assertEquals(qualityResult, product.quality, "quality")
         		);
 	}
+@Disabled
 	@ParameterizedTest(name = "{index} => sellIn: {0} quality: {1} –> sellIn: {2} quality: {3}")
 	@CsvSource({
 		"1, 0, 1, 0",
@@ -65,6 +66,7 @@ class GildedRoseTest {
         		() -> assertEquals(qualityResult, product.quality, "quality")
         		);
 	}
+@Disabled
 	@ParameterizedTest(name = "{index} => sellIn: {0} quality: {1} –> sellIn: {2} quality: {3}")
 	@CsvSource({
 		"11, 0, 10, 1",
@@ -87,6 +89,7 @@ class GildedRoseTest {
         		() -> assertEquals(qualityResult, product.quality, "quality")
         		);
 	}
+@Disabled
 	@ParameterizedTest(name = "{index} => sellIn: {0} quality: {1} –> sellIn: {2} quality: {3}")
 	@CsvSource({
 		"11, 10, 10, 9",
@@ -107,6 +110,7 @@ class GildedRoseTest {
         		() -> assertEquals(qualityResult, product.quality, "quality")
         		);
 	}
+@Disabled
 	@ParameterizedTest(name = "{index} => sellIn: {0} quality: {1} –> sellIn: {2} quality: {3}")
 	@CsvSource({
 		"5, -5, 4, 0",
@@ -135,6 +139,7 @@ class GildedRoseTest {
 		String name = "Normal Product";
         assertThrows(IllegalArgumentException.class, () -> new Item(name, sellIn, quality));
 	}
+@Disabled
 	@ParameterizedTest(name = "{index} => sellIn: {0} quality: {1} –> sellIn: {2} quality: {3}")
 	@CsvSource({
 		"11, 10, 10, 8",
@@ -157,6 +162,7 @@ class GildedRoseTest {
 	}
 
 	@Test
+@Disabled
 	void getItems_Test() throws ProductListException {
 		String name = "Normal Product";
 		Item product = new Item("Normal Product", 1, 1);
@@ -174,6 +180,7 @@ class GildedRoseTest {
 	}
 
 	@Test
+@Disabled
 	void getItem_Test() throws ProductListException {
 		String name = "Normal Product";
 		Item product = new Item("Normal Product", 1, 2);
