@@ -3,6 +3,10 @@ pipeline {
     triggers { // Sondear repositorio a intervalos regulares
         pollSCM('* * * * *')
     }
+    tools {
+        maven "maven-last"
+    }
+
     stages {
         stage ('Initialize') {
             steps {
