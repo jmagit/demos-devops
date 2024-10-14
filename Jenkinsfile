@@ -44,10 +44,33 @@ pipeline {
                 }
             }
         }
-        stage("Build") {
-            steps {
-                sh "mvn package -DskipTests"
-                archiveArtifacts 'target/*.jar'
+        stage('Build & Site') {
+            parallel {
+                stage("Build") {
+                    steps {
+                        sh "mvn package -DskipTests"
+                        archiveArtifacts 'target/*.jar'
+                    }
+                }
+                stage("Site") {
+                    steps {
+                        sh "mvn site"
+                    }
+                    post {
+                        success {
+                            publishHTML([
+                                allowMissing: false, 
+                                alwaysLinkToLastBuild: false, 
+                                keepAll: false, 
+                                reportDir: 'target/site/', 
+                                reportFiles: 'index.html', 
+                                reportName: 'Documentacion del sitio', 
+                                reportTitles: 'Documentacion del sitio', 
+                                useWrapperFileDirectly: true
+                                ])
+                        }
+                    }
+                }
             }
         }
         stage("Deploy") {
