@@ -4,4 +4,4 @@ Es una versión Java refactorizada de la kata [GildedRose](https://github.com/em
 
 Cuenta con una batería de pruebas unitarias en JUnit 5.
 
-Permite la construcción a traves de Maven, covertura de código en JaCoCo y su escaneo con SonarQube.
+Permite la construcción a traves de Maven, cobertura de código en JaCoCo y su escaneo con SonarQube.
