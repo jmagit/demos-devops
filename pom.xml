@@ -11,6 +11,12 @@
 		<evosuiteVersion>1.0.6</evosuiteVersion>
 		<junit.version>5.7.0</junit.version>
 	</properties>
+	<scm>
+		<connection>scm:git:https://github.com/jmagit/demos-devops.git</connection>
+		<developerConnection> scm:git:https://github.com/jmagit/demos-devops.git </developerConnection>
+		<tag>HEAD</tag> <!-- especifica la etiqueta bajo la que se encuentra este proyecto, HEAD (raíz) -->
+		<url>https://github.com/jmagit/demos-devops</url> <!-- repositorio accesible públicamente -->
+	</scm>
 	<dependencies>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
