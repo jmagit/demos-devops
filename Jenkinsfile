@@ -29,7 +29,8 @@ pipeline {
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
-                    jacoco sourceInclusionPattern: '**/*.java'
+                    recordCoverage
+                    //jacoco sourceInclusionPattern: '**/*.java'
                 }
             }
         }
