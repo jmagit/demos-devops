@@ -9,8 +9,9 @@ Permite la construcción a traves de Maven, cobertura de código en JaCoCo y su 
 ## Jenkins
 
 ### Plugins
+
 - JUnit
-- Coverage
+- ~~Jacoco~~ Coverage
 - Html Publisher
 - SonarQube Scanner
 - Maven Integration
