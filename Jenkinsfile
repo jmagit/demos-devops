@@ -45,7 +45,7 @@ pipeline {
                 }
             }
         }
-        stage('Build & Site (parallel)') {
+        stage('Build & Site') {
             parallel {
                 stage("Build") {
                     steps {
