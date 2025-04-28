@@ -1,6 +1,17 @@
 package com.gildedrose;
 
+import java.util.logging.Logger;
+
 public class App {
+    private static final String CONJURED = "Conjured Mana Cake";
+    private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
+    private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
+    private static final String ELIXIR = "Elixir of the Mongoose";
+    private static final String AGED_BRIE = "Aged Brie";
+    private static final String DEXTERITY_VEST = "+5 Dexterity Vest";
+
+    private static Logger logger = Logger.getLogger(App.class.getName());
+
     public static void main(String[] args) {
         App app = new App();
 
@@ -12,18 +23,17 @@ public class App {
     }
 
     private Item[] items = new Item[] {
-            new Item("+5 Dexterity Vest", 10, 20), 
-            new Item("Aged Brie", 2, 0), 
-            new Item("Elixir of the Mongoose", 5, 7), 
-            new Item("Sulfuras, Hand of Ragnaros", 0, 80),
-            new Item("Sulfuras, Hand of Ragnaros", -1, 80),
-            new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-            new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
-            new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-            // this conjured item does not work properly yet
-            new Item("Conjured Mana Cake", 3, 6) };
+            new Item(DEXTERITY_VEST, 10, 20), 
+            new Item(AGED_BRIE, 2, 0), 
+            new Item(ELIXIR, 5, 7), 
+            new Item(SULFURAS, 0, 80),
+            new Item(SULFURAS, -1, 80),
+            new Item(BACKSTAGE_PASSES, 15, 20),
+            new Item(BACKSTAGE_PASSES, 10, 49),
+            new Item(BACKSTAGE_PASSES, 5, 49),
+            new Item(CONJURED, 3, 6) };
 
-    private void run(String[] args) throws ProductListException {
+    public void run(String[] args) throws ProductListException {
         GildedRose app = new GildedRose(items);
 
         int days = 10;
@@ -32,17 +42,21 @@ public class App {
         }
 
         for (int i = 0; i < days; i++) {
-            System.out.println("-------- day " + i + " --------");
-            System.out.println("name, sellIn, quality");
+            print("-------- day " + i + " --------");
+            print("name, sellIn, quality");
             for (Item item : items) {
-                System.out.println(item);
+                print(item.toString());
             }
-            System.out.println();
+            print("");
             app.updateQuality();
         }
     }
 
+    private void print(String message) {
+        logger.info(message);
+    }
+
     private static void notificarExcepcion(Exception e) {
-        System.err.println(e.getMessage());
+        logger.severe(e.getMessage());
     }
 }

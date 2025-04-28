@@ -181,5 +181,13 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+
+# SonarQube
+.sonar/
+.sonarqube/
+.scannerwork/
+.sonarlint/**
+sonar-scan.cmd
+
+# Miscellaneous
 .evosuite/**
-.scannerwork/**

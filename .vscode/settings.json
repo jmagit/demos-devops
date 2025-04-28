@@ -4,5 +4,9 @@
             "command": "clean package",
             "debug": false
         }
-    ]
+    ],
+    "sonarlint.connectedMode.project": {
+        "connectionId": "SonarQubeDockerServer",
+        "projectKey": "com.example:DevOps"
+    }
 }
