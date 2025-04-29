@@ -9,6 +9,8 @@ import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import com.example.test.annotation.SmokeTest;
+
 class FuncionalesTest {
 
 	@Test
@@ -48,7 +50,7 @@ class FuncionalesTest {
 	}
         
 	@Test
-        @Tag("smoke")
+    @SmokeTest
 	void instantanea() throws ProductListException {
 		Item[] items = new Item[] { 
 				new Item("+5 Dexterity Vest", 10, 20), 
