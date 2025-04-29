@@ -5,6 +5,35 @@
             "debug": false
         }
     ],
+    "java.test.defaultConfig": "all",
+    "java.test.config": [
+        {
+            "name": "all",
+            "workingDirectory": "${workspaceFolder}",
+            "testKind": "junit"
+        },
+        {
+            "name": "smoke unit test",
+            "workingDirectory": "${workspaceFolder}",
+            "testKind": "junit",
+            "filters": {
+                "tags": [
+                    "smoke",
+                    "!e2e"
+                ]
+            }
+        },
+        {
+            "name": "e2e test",
+            "workingDirectory": "${workspaceFolder}",
+            "testKind": "junit",
+            "filters": {
+                "tags": [
+                    "e2e"
+                ]
+            }
+        }
+    ],
     "sonarlint.connectedMode.project": {
         "connectionId": "SonarQubeDockerServer",
         "projectKey": "com.example:DevOps"
