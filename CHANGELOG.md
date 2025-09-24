@@ -6,6 +6,4 @@ cambia el modulo
 
 cambia en el local
 
-dispara job
-
-como submodulo
+dispara job en todos
