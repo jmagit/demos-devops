@@ -4,7 +4,7 @@ pipeline {
         pollSCM('* * * * *')
     }
     tools {
-        maven "maven-last"
+        maven "maven-lts"
     }
 
     stages {
