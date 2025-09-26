@@ -47,6 +47,9 @@ pipeline {
         }
         stage('Build & Site') {
             parallel {
+                when {
+                    branch 'production'
+                } 
                 stage("Build") {
                     steps {
                         sh "mvn package -DskipTests"
