@@ -47,10 +47,10 @@ pipeline {
         }
         stage('Build & Site') {
             parallel {
-                when {
-                    branch 'production'
-                } 
                 stage("Build") {
+                    when {
+                        branch 'production'
+                    } 
                     steps {
                         sh "mvn package -DskipTests"
                         archiveArtifacts 'target/*.jar'
