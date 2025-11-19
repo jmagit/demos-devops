@@ -70,6 +70,7 @@ pipeline {
                             publishHTML([
                                 allowMissing: false, 
                                 alwaysLinkToLastBuild: false, 
+                                icon: '', 
                                 keepAll: false, 
                                 reportDir: 'target/site/', 
                                 reportFiles: 'index.html', 
