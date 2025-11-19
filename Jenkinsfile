@@ -51,10 +51,14 @@ pipeline {
             } 
             failFast true
             parallel {
-                stage("Build") {
+                stage('Build') {
                     steps {
-                        sh "mvn package -DskipTests"
-                        archiveArtifacts 'target/*.jar'
+                        sh 'mvn package -DskipTests'
+                    }
+                    post {
+                        success {
+                            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true, followSymlinks: false
+                        }
                     }
                 }
                 stage("Site") {
@@ -78,9 +82,18 @@ pipeline {
                 }
             }
         }
-        stage("Deploy") {
+        stage('deploy') {
+            when {
+                branch 'production' 
+            }
             steps {
-                sh "mvn install -DskipTests"
+                mail to: 'amd@example.com',
+                 subject: "Pendiente de aprobación el despliegue de ${currentBuild.fullDisplayName}",
+                 body: "Para la aprobación entre en ${env.BUILD_URL+'pipeline-overview'}"
+                timeout(time: 3, unit: 'MINUTES') {
+                    input cancel: 'Cancelar', message: 'Procedo al despliegue o aborto', ok: 'Aceptar'
+                }
+                sh 'mvn install -DskipTests'
             }
         }
     }
