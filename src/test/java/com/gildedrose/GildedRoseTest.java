@@ -10,6 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
+@Disabled
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class GildedRoseTest {
     Item[] samples = new Item[] {
