@@ -8,11 +8,9 @@ import java.util.Arrays;
 import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Disabled;
 
 import com.example.test.annotation.SmokeTest;
 
-@Disabled
 class FuncionalesTest {
 
 	@Test
