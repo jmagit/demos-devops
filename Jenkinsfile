@@ -13,8 +13,9 @@ pipeline {
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "JAVA_HOME = ${JAVA_HOME}"
-                    echo "JENKINS_VERSION = ${JENKINS_VERSION}"                   
-                '''
+                    echo "JENKINS_VERSION = ${JENKINS_VERSION}"
+                ''' 
+                echo "BRANCH_NAME = ${env.BRANCH_NAME}"
             }
         }
         stage("Compile") {
@@ -46,15 +47,19 @@ pipeline {
             }
         }
         stage('Build & Site') {
-            when {
-                branch 'production'
-            } 
+            // when {
+            //     branch 'production'
+            // } 
             failFast true
             parallel {
-                stage("Build") {
+                stage('Build') {
                     steps {
-                        sh "mvn package -DskipTests"
-                        archiveArtifacts 'target/*.jar'
+                        sh 'mvn package -DskipTests'
+                    }
+                    post {
+                        success {
+                            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true, followSymlinks: false
+                        }
                     }
                 }
                 stage("Site") {
@@ -66,6 +71,7 @@ pipeline {
                             publishHTML([
                                 allowMissing: false, 
                                 alwaysLinkToLastBuild: false, 
+                                icon: '', 
                                 keepAll: false, 
                                 reportDir: 'target/site/', 
                                 reportFiles: 'index.html', 
@@ -78,9 +84,18 @@ pipeline {
                 }
             }
         }
-        stage("Deploy") {
+        stage('deploy') {
+            // when {
+            //     branch 'production' 
+            // }
             steps {
-                sh "mvn install -DskipTests"
+                mail to: 'amd@example.com',
+                 subject: "Pendiente de aprobación el despliegue de ${currentBuild.fullDisplayName}",
+                 body: "Para la aprobación entre en ${env.BUILD_URL+'pipeline-overview'}"
+                timeout(time: 3, unit: 'MINUTES') {
+                    input cancel: 'Cancelar', message: 'Procedo al despliegue o aborto', ok: 'Aceptar'
+                }
+                sh 'mvn install -DskipTests'
             }
         }
     }
