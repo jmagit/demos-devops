@@ -46,9 +46,9 @@ pipeline {
             }
         }
         stage('Build & Site') {
-            //when {
-            //    branch 'production'
-            //} 
+            when {
+                branch 'production'
+            } 
             failFast true
             parallel {
                 stage("Build") {
