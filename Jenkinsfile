@@ -91,7 +91,7 @@ pipeline {
             steps {
                 mail to: 'amd@example.com',
                  subject: "Pendiente de aprobación el despliegue de ${currentBuild.fullDisplayName}",
-                 body: "Para la aprobación entre en ${env.BUILD_URL+'pipeline-overview'}"
+                 body: "Para la aprobación entre en ${env.BUILD_URL+'stages'}"
                 timeout(time: 3, unit: 'MINUTES') {
                     input cancel: 'Cancelar', message: 'Procedo al despliegue o aborto', ok: 'Aceptar'
                 }
