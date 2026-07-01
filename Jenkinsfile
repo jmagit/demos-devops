@@ -15,7 +15,7 @@ pipeline {
                     echo "JAVA_HOME = ${JAVA_HOME}"
                     echo "JENKINS_VERSION = ${JENKINS_VERSION}"
                 ''' 
-                sh 'echo "BRANCH_NAME = ${env.BRANCH_NAME}"'
+                echo "BRANCH_NAME = ${env.BRANCH_NAME}"
             }
         }
         stage("Compile") {
