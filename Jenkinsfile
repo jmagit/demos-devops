@@ -14,6 +14,7 @@ pipeline {
                     echo "PATH = ${PATH}"
                     echo "JAVA_HOME = ${JAVA_HOME}"
                     echo "JENKINS_VERSION = ${JENKINS_VERSION}"
+                    echo "JENKINS_VERSION = ${env.BRANCH_NAME}"
                 ''' 
             }
         }
