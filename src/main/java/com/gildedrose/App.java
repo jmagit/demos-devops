@@ -12,8 +12,6 @@ public class App {
 
     private static Logger logger = Logger.getLogger(App.class.getName());
 
-    public static String password = "P@$$w0rd";
-    
     public static void main(String[] args) {
         App app = new App();
 
