@@ -11,6 +11,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+	@Disabled("Solo para el ejemplo de data test")
 class GildedRoseTest {
     Item[] samples = new Item[] {
             new Item("+5 Dexterity Vest", 10, 20), //
