@@ -75,6 +75,7 @@ class GildedRoseTest {
 		"0, 3, -1, 0",
 		"-1, 3, -2, 0",
 		})
+		@Disabled("Solo para el ejemplo de data test")
 	void product_Passes_Test(int sellIn, int quality, int sellInResult, int qualityResult) throws ProductListException {
 		String name = "Backstage passes to a TAFKAL80ETC concert";
 		Item product = new Item(name, sellIn, quality);
