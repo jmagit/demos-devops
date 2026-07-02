@@ -8,11 +8,9 @@ import java.util.Arrays;
 import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Disabled;
 
 import com.example.test.annotation.SmokeTest;
 
-	@Disabled("Solo para el ejemplo de data test")
 class FuncionalesTest {
 
 	@Test
@@ -53,7 +51,6 @@ class FuncionalesTest {
         
 	@Test
     @SmokeTest
-	@Disabled("Solo para el ejemplo de data test")
 	void instantanea() throws ProductListException {
 		Item[] items = new Item[] { 
 				new Item("+5 Dexterity Vest", 10, 20), 

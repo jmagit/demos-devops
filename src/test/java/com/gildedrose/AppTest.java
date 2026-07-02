@@ -6,9 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 import com.example.test.utils.PrivateField;
-import org.junit.jupiter.api.Disabled;
 
-	@Disabled("Solo para el ejemplo de data test")
 class AppTest {
     @Test
     void testRun_no_args_OK() {
