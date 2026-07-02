@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Disabled;
 
 import com.example.test.annotation.SmokeTest;
 
+	@Disabled("Solo para el ejemplo de data test")
 class FuncionalesTest {
 
 	@Test
