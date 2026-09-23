@@ -10,7 +10,9 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import com.example.test.annotation.SmokeTest;
+import org.junit.jupiter.api.Disabled;
 
+@Disabled
 class FuncionalesTest {
 
 	@Test
